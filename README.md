@@ -1,2 +1,2 @@
 # Programming-Technologies
-Enterprose architect, Java projects, webdev
+Enterprise architect, Java projects, webdev
