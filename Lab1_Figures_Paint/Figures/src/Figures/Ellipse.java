@@ -1,6 +1,8 @@
 package Figures;
+import javafx.geometry.Point2D;
 
-import java.awt.geom.Point2D;
+import java.awt.*;
+
 
 /**
  * @author Вадим
@@ -9,42 +11,50 @@ import java.awt.geom.Point2D;
  */
 public class Ellipse extends Figure2D {
 
-	private Point2D firstPoint;
 	private Point2D secondPoint;
 
 	public Ellipse(){
-
+		setNumberOfPoints(2);
 	}
 
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-	public void draw(){
-
+	/**
+	 *
+	 * @param point
+	 */
+	public void addPoint(Point2D point){
+		if (getCenter()==null)
+			setCenter(point);
+		else setSecondPoint(point);
 	}
 
-	public Point2D getFirstPoint(){
-		return firstPoint;
+	/**
+	 *
+	 * @param g
+	 */
+	public void draw(Graphics g){
+		g.fillOval((int)(2*getCenter().getX()-getSecondPoint().getX()),(int)(2*getCenter().getY()-getSecondPoint().getY()),
+				(int)(-2*(getCenter().getX()-getSecondPoint().getX())),(int)(-2*(getCenter().getY()-getSecondPoint().getY())));
 	}
 
 	public Point2D getSecondPoint(){
 		return secondPoint;
 	}
 
-	public void move(){
-
-	}
-
 	/**
-	 * 
-	 * @param newVal
+	 *
+	 * @param deltaX
+	 * @param deltaY
 	 */
-	public void setFirstPoint(Point2D newVal){
-		firstPoint = newVal;
+	public void move(int deltaX, int deltaY){
+		setCenter(new Point2D(getCenter().getX()+deltaX,getCenter().getY()+deltaY));
+		setSecondPoint(new Point2D(getSecondPoint().getX()+deltaX,getSecondPoint().getY()+deltaY));
 	}
 
 	/**
-	 * 
+	 *
 	 * @param newVal
 	 */
 	public void setSecondPoint(Point2D newVal){

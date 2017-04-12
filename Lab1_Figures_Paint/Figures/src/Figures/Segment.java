@@ -1,5 +1,8 @@
 package Figures;
 import javafx.geometry.Point2D;
+
+import java.awt.*;
+
 /**
  * @author Вадим
  * @version 1.0
@@ -14,12 +17,20 @@ public class Segment extends Figure1D {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
+
+	@Override
+	public Point2D getRealPoint1() {
+		return getCenter();
+	}
+
+	@Override
+	public Point2D getRealPoint2() {
+		return getSecondPoint();
+	}
 	/**
 	 * 
 	 * @param center
 	 * @param secondPoint
 	 */
-	public void setPoints(Point2D center, Point2D secondPoint){
 
-	}
 }//end Segment

@@ -1,4 +1,7 @@
 package Figures;
+import javafx.geometry.Point2D;
+
+import java.awt.*;
 
 /**
  * @author Вадим
@@ -7,8 +10,6 @@ package Figures;
  */
 public class RegularPolygon extends Polygon {
 
-	private int amountOfSides;
-
 	public RegularPolygon(){
 
 	}
@@ -16,19 +17,13 @@ public class RegularPolygon extends Polygon {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
+
+	@Override
+	public void addPoint(Point2D point) {
+		getPoints().add(point);
+	}
+
 	public void fillPoints(){
 
-	}
-
-	public int getAmountOfSides(){
-		return amountOfSides;
-	}
-
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setAmountOfSides(int newVal){
-		amountOfSides = newVal;
 	}
 }//end RegularPolygon

@@ -1,5 +1,4 @@
 package Figures;
-
 import javafx.geometry.Point2D;
 
 import java.awt.*;
@@ -13,7 +12,7 @@ public abstract class Figure {
 
 	private Point2D center;
 	private Color lineColor;
-	private int numberofPoints;
+	private int numberOfPoints;
 
 	public Figure(){
 
@@ -22,7 +21,7 @@ public abstract class Figure {
 	public void finalize() throws Throwable {
 
 	}
-	public void draw(){
+	public void draw(Graphics g){
 
 	}
 
@@ -38,9 +37,12 @@ public abstract class Figure {
 		return null;
 	}
 
-	public void move(){
-
-	}
+	/**
+	 *
+	 * @param deltaX
+	 * @param deltaY
+	 */
+	abstract public void move(int deltaX, int deltaY);
 
 	/**
 	 * 
@@ -56,5 +58,23 @@ public abstract class Figure {
 	 */
 	public void setLineColor(Color newVal){
 		lineColor = newVal;
+	}
+
+	/**
+	 * 
+	 * @param point
+	 */
+	abstract public void addPoint(Point2D point);
+
+	public int getNumberOfPoints(){
+		return numberOfPoints;
+	}
+
+	/**
+	 * 
+	 * @param newVal
+	 */
+	public void setNumberOfPoints(int newVal){
+		numberOfPoints = newVal;
 	}
 }//end Figure
